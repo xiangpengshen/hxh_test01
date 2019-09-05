@@ -20,7 +20,6 @@ Page({
     wx.navigateTo({
       url: '../login/login',
     })
-   
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
