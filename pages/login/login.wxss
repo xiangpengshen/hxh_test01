@@ -1,1 +1,37 @@
-/* pages/login/login.wxss */
+
+.section{
+  padding:0 30rpx;
+  border-bottom:1px solid #dfdfdf;
+  height: 45px;
+  line-height: 45px;
+}
+.section .user-motto{
+  float:left;
+  font-size:36rpx;
+}
+.section input{
+  height: 45px;
+  line-height: 45px;
+  float: right;
+  font-size: 28rpx;
+  padding-left: 10px;
+  width: 65%;
+}
+.capture canvas{
+  width: 100px;
+height: 45px;
+position: absolute;
+right: 0;
+
+}
+.btn-area  button{
+  width: 80%;
+  background: #0d78e3;
+  height: 40px;
+  border-radius: 50px;
+  color: #fff;
+  line-height: 40px;
+  font-size: 32rpx;
+  margin-top: 200rpx;
+
+}

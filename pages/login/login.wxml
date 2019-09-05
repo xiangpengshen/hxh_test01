@@ -1,12 +1,25 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="usermotto">
-    <text class="user-motto">用户名</text>
-    <input bindinput="userNameInput"></input>
-    <text class="user-motto">密码</text>
-    <input bindinput="passwordInput"></input>
-    <text class="user-motto">验证码</text>
-    <input bindinput="yzmInput"></input>
-  </view>
-  <button bindtap="clickMe">登录</button>
+<navbar  inner-title="{{title}}"></navbar>
+<view class="page-login">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <text class="user-motto">用户名</text>
+      <input bindinput="userNameInput" type="text" name="input"  placeholder="请输入用户名" />
+    </view>
+    <view class="section">
+      <text class="user-motto">密码</text>
+      <input bindinput="passwordInput" password type="number" name="input" placeholder="请输入密码" />
+      
+    </view>
+    <view class="section">
+      <text class="user-motto">验证码</text>
+      <input bindinput="yzmInput" name="input" placeholder="请输入验证码" type='text' />
+      <view class="capture">
+        <canvas style="" canvas-id="canvas" bindtap="changeImg"></canvas>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button bindtap="clickMe">登录</button>
+    </view>
+  </form>
 </view>
