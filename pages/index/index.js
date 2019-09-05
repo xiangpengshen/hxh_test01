@@ -17,7 +17,10 @@ Page({
     })
   },
   clickMe: function() {
-    this.setData({ msg: "Hello HXH" })
+    wx.navigateTo({
+      url: '../login/login',
+    })
+   
   },
   onLoad: function () {
     if (app.globalData.userInfo) {
