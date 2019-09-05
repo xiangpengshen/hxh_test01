@@ -8,9 +8,8 @@ Page({
     title: '登录页面',
     userName: '',
     password: '',
-    yzm: '',
+    yzm: '', //输入的验证码
     codeStr: '', //生成的验证码
-    code: '', //输入的验证码
   },
   //事件处理函数
   userNameInput: function (e) {
@@ -29,10 +28,11 @@ Page({
     })
   },
   clickMe: function () {
+    console.log('系统生成的验证码：' + this.data.sysyzm.toLowerCase());
+    console.log('您输入的验证码：' + this.data.yzm.toLowerCase());
     wx.request({
       url: 'https://localhost/wxlogin',//上线的话必须是https，没有appId的本地请求貌似不受影响
       data: {
-        verifycode: this.data.yzm,
         mobile: this.data.userName,
         password: this.data.password
       },
@@ -70,19 +70,17 @@ Page({
   changeImg: function () {
     this.initDraw();
   },
-  bindCode: function (e) {
-    this.setData({
-      code: e.detail.value
-    })
-  },
   getRanNum: function () {
     var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';
-    var pwd = '';
+    var yzm = '';
     for (var i = 0; i < 4; i++) {
       if (Math.random() < 48) {
-        pwd += chars.charAt(Math.random() * 48 - 1);
+        yzm += chars.charAt(Math.random() * 48 - 1);
       }
     }
-    return pwd;
+    this.setData({
+      sysyzm: yzm
+    });
+    return yzm;
   },
 })
