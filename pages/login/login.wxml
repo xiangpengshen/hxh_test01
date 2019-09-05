@@ -7,7 +7,7 @@
       <input bindinput="userNameInput" type="text" name="input"  placeholder="请输入用户名" />
     </view>
     <view class="section">
-      <text class="user-motto">密码</text>
+      <text class="user-motto">密码</text> 
       <input bindinput="passwordInput" password type="number" name="input" placeholder="请输入密码" />
       
     </view>

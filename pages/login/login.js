@@ -42,7 +42,7 @@ Page({
         console.log(res);
       },
       fail: function () {
-        // fail
+        //fail
       },
       complete: function () {
         // complete
