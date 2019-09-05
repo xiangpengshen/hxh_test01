@@ -1,5 +1,6 @@
 //index.js
 //获取应用实例
+//上传测试
 const app = getApp()
 
 Page({
