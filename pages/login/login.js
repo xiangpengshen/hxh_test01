@@ -12,22 +12,17 @@ Page({
     codeStr: '', //生成的验证码
   },
   //事件处理函数
-  userNameInput: function (e) {
-    this.data.userName = e.detail.value;
+  username: function (e) {
+    this.data.username = e.detail.value;
   },
-
-  passwordInput: function (e) {
+  password: function (e) {
     this.data.password = e.detail.value;
   },
   yzmInput: function (e) {
     this.data.yzm = e.detail.value;
   },
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  clickMe: function () {
+
+  submit: function (e) {
     console.log('系统生成的验证码：' + this.data.sysyzm.toLowerCase());
     console.log('您输入的验证码：' + this.data.yzm.toLowerCase());
     wx.request({
@@ -42,14 +37,20 @@ Page({
         console.log(res);
       },
       fail: function () {
-        //fail
+        // fail
       },
       complete: function () {
         // complete
       }
     })
+    if (this.data.username == null || this.data.username == "") {
+      console.log("不能为空")
+      wx.showModal({
+        title: '提示',
+        content: '用户名不能为空'
+      })
+    }
   },
-
   onLoad: function (options) {
     var that = this;
     that.initDraw(); //生成验证码
