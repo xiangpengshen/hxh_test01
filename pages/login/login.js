@@ -12,24 +12,28 @@ Page({
     codeStr: '', //生成的验证码
   },
   //事件处理函数
-  username: function (e) {
-    this.data.username = e.detail.value;
+  userName: function (e) {
+    this.data.userName = e.detail.value;
   },
   password: function (e) {
     this.data.password = e.detail.value;
   },
-  yzmInput: function (e) {
+  yzm: function (e) {
     this.data.yzm = e.detail.value;
   },
 
   submit: function (e) {
+    console.log(this.data);
+    var that = this;
     console.log('系统生成的验证码：' + this.data.sysyzm.toLowerCase());
     console.log('您输入的验证码：' + this.data.yzm.toLowerCase());
     wx.request({
       url: 'https://localhost/wxlogin',//上线的话必须是https，没有appId的本地请求貌似不受影响
       data: {
-        mobile: this.data.userName,
-        password: this.data.password
+        mobile: that.data.userName,
+        password: that.data.password,
+        yzm: that.data.yzm,
+        code: app.globalData.code //微信登录code去后台获取sessionId
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       // header: {}, // 设置请求的 header
@@ -43,7 +47,8 @@ Page({
         // complete
       }
     })
-    if (this.data.username == null || this.data.username == "") {
+    
+    if (that.data.userName == null || that.data.userName == "") {
       console.log("不能为空")
       wx.showModal({
         title: '提示',
