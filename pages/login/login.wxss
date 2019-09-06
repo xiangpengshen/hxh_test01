@@ -22,6 +22,7 @@
 height: 45px;
 position: absolute;
 right: 0;
+z-index: 999;
 
 }
 .btn-area  button{
@@ -34,4 +35,17 @@ right: 0;
   font-size: 32rpx;
   margin-top: 200rpx;
 
+}
+.ad_popError{ 
+  background: #de352d; 
+  color: #fff; 
+  height: 70rpx; 
+  line-height: 58rpx; 
+  font-size: 30rpx; 
+  text-align: center; 
+  position: absolute; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  z-index:3;
 }
