@@ -20,7 +20,7 @@ Component({
   },
   methods: {
     // 这里是一个自定义方法
-    navback: function () {
+    goback: function () {
       wx.navigateBack({
         delta: 1,
       })
