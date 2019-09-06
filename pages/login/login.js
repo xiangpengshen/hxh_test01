@@ -23,7 +23,6 @@ Page({
   },
 
   submit: function (e) {
-    console.log(this.data);
     var that = this;
     console.log('系统生成的验证码：' + this.data.sysyzm.toLowerCase());
     console.log('您输入的验证码：' + this.data.yzm.toLowerCase());
